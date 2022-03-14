@@ -70,7 +70,7 @@ variable "admin_full_name" {
 }
 
 variable "admin_email" {
-  default = "pnayak@purestorage.com"
+  default = "pnayak@bigopen.cloud"
 }
 
 variable "curlimage" {
