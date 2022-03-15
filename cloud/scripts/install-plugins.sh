@@ -11,6 +11,9 @@ declare -a PluginList=(
     "pipeline-aws"
     "google-kubernetes-engine"
     "gcp-secrets-manager-credentials-provider"
+    "openshift-k8s-credentials"
+    "openshift-client"
+    "vsphere-cloud"
 )
 
 
