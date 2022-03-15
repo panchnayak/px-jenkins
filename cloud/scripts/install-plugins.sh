@@ -9,6 +9,8 @@ declare -a PluginList=(
     "pipeline-multibranch-defaults" 
     "blueocean" 
     "pipeline-aws"
+    "google-kubernetes-engine"
+    "gcp-secrets-manager-credentials-provider"
 )
 
 
