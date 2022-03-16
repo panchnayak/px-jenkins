@@ -10,6 +10,7 @@ declare -a PluginList=(
     "blueocean" 
     "pipeline-aws"
     "google-kubernetes-engine"
+    "google-compute-engine"
     "gcp-secrets-manager-credentials-provider"
     "openshift-k8s-credentials"
     "openshift-client"
