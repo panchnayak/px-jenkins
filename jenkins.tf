@@ -91,7 +91,7 @@ resource "null_resource" "jenkins_admin_create" {
       "sudo systemctl enable docker --now",
       "sudo yum install git -y",
       "sudo mkdir -p /var/lib/jenkins/init.groovy.d",
-      "chmod +x /tmp/scripts/install_jenkins.sh" ,
+      "chmod +x /tmp/scripts/install-jenkins.sh" ,
       "/tmp/scripts/install_jenkins.sh ${var.java_home} ${var.jenkins_username} ${var.jenkins_password}"
     ]
 
