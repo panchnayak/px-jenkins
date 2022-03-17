@@ -31,6 +31,7 @@ resource "aws_instance" "jenkins_instance" {
   availability_zone      = "us-east-1a"
   instance_type          = "${var.instance_type}"
   ami                    = "${data.aws_ami.centos.id}"
+  #ami                    = "${var.jenkins_ami_id}"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${module.jenkins_sg.security_group_id}"]
   subnet_id              = "${module.vpc.public_subnets[0]}"
