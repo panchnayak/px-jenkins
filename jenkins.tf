@@ -68,7 +68,6 @@ resource "null_resource" "jenkins_admin_create" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo hostnamectl set-hostname jenkins-px",
       "curl --silent --location http://pkg.jenkins.io/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo",
       "sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key",
       "sudo yum update -y",
@@ -85,15 +84,20 @@ resource "null_resource" "jenkins_admin_create" {
       "export PATH=$PATH:$JAVA_HOME/bin:.",
       "sudo systemctl start jenkins",
       "sudo systemctl enable jenkins",
-
       "sudo curl -sSL https://get.docker.com | bash",
       "sudo usermod -a -G docker centos",
       "sudo usermod -a -G docker jenkins",
       "sudo systemctl enable docker --now",
       "sudo yum install git -y",
       "sudo mkdir -p /var/lib/jenkins/init.groovy.d",
-      "chmod +x /tmp/scripts/install-jenkins.sh" ,
-      "/tmp/scripts/install_jenkins.sh ${var.java_home} ${var.jenkins_username} ${var.jenkins_password}"
+      "chmod +x /tmp/scripts/init-jenkins.sh" ,
+      "chmod +x /tmp/scripts/install-plugin.sh" ,
+      "chmod +x /tmp/scripts/install-tools.sh" ,
+      "chmod +x /tmp/scripts/install-pipeline.sh" ,
+      "/tmp/scripts/init-jenkins.sh",
+      "/tmp/scripts/install-plugin.sh ${var.jenkins_username} ${var.jenkins_password}",
+      "/tmp/scripts/install-tools.sh",
+      "/tmp/scripts/install-pipeline.sh"
     ]
 
     connection {
