@@ -91,13 +91,13 @@ resource "null_resource" "jenkins_admin_create" {
       "sudo yum install git -y",
       "sudo mkdir -p /var/lib/jenkins/init.groovy.d",
       "chmod +x /tmp/scripts/init-jenkins.sh" ,
-      "chmod +x /tmp/scripts/install-plugins.sh" ,
       "chmod +x /tmp/scripts/install-tools.sh" ,
+      "chmod +x /tmp/scripts/install-plugins.sh" ,
       "chmod +x /tmp/scripts/install-pipeline.sh" ,
       "/tmp/scripts/init-jenkins.sh",
       "/tmp/scripts/install-plugins.sh ${var.jenkins_username} ${var.jenkins_password}",
       "/tmp/scripts/install-tools.sh",
-      "/tmp/scripts/install-pipeline.sh"
+      "/tmp/scripts/install-pipeline.sh ${var.jenkins_username} ${var.jenkins_password}"
     ]
 
     connection {
