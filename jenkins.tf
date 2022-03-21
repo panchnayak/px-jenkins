@@ -88,9 +88,9 @@ resource "null_resource" "jenkins_admin_create" {
       "export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.",
       "export PATH=$PATH:$JAVA_HOME/bin:.",
       "/tmp/scripts/init-jenkins.sh",
-      "sudo systemctl restart jenkins",
       "/tmp/scripts/install-tools.sh",
       "/tmp/scripts/install-plugins.sh ${var.jenkins_username} ${var.jenkins_password}",
+      "sudo systemctl restart jenkins",
       "/tmp/scripts/create-pipeline.sh ${var.jenkins_username} ${var.jenkins_password}"
     ]
 
