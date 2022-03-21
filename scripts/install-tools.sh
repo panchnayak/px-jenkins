@@ -10,7 +10,7 @@ sudo ln -s /usr/local/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
 sudo ln -s /usr/local/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil
 sudo ln -s /usr/local/google-cloud-sdk/bin/anthoscli /usr/local/bin/anthoscli
 curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
-unzip -f awscliv2.zip
+unzip -o awscliv2.zip
 rm awscliv2.zip
 sudo bash ./aws/install
 sudo curl -sSL https://get.docker.com | bash
