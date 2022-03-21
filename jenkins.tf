@@ -74,10 +74,12 @@ resource "null_resource" "jenkins_admin_create" {
       "sudo yum install epel-release -y",
       "sudo yum install java-11-openjdk-devel -y",
       "sudo yum install daemonize jenkins -y",
+      "sudo yum install git -y",
       "J_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))",
       "sudo ln -s $J_HOME /usr/lib/jvm/openjdk11",
-      
-
+      "cd /tmp && git clone https://github.com/panchnayak/px-jenkins.git",
+      "cp -r /tmp/px-jenkins/scripts .",
+      "rm -rf px-jenkins",
       #setting up JAVA_HOME path for all users
       "export JAVA_HOME=/usr/lib/jvm/openjdk11",
       "export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.",
