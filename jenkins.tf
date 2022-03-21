@@ -54,17 +54,17 @@ resource "aws_instance" "jenkins_instance" {
 
 resource "null_resource" "jenkins_admin_create" {
 
-  provisioner "file" {
-    source      = "./scripts"
-    destination = "/tmp"
+  #provisioner "file" {
+  #  source      = "./scripts"
+  #  destination = "/tmp"
 
-    connection {
-      user        = "${var.user_name}"
-      host        = "${aws_instance.jenkins_instance.public_ip}"
-      agent       = false
-      private_key = "${file("${var.key_path}/${var.key_private}")}"
-    }
-  }
+  #  connection {
+  #    user        = "${var.user_name}"
+  #    host        = "${aws_instance.jenkins_instance.public_ip}"
+  #    agent       = false
+  #    private_key = "${file("${var.key_path}/${var.key_private}")}"
+  #  }
+  #}
 
   provisioner "remote-exec" {
     inline = [
